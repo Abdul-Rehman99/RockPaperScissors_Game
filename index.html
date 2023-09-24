@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>RocK Paper Scissors</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    .box{
+        border: 2px solid purple;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+    h3{
+        background-color: azure;
+    }
+    i{
+        font-size: 4rem;
+    }
+    .select-hand{
+        background-color: aquamarine;
+    }
+    .select-hand>span{
+        display: inline-block;
+        padding: 6px;
+    }
+    .state{
+        background-color: aqua;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="state">
+            <i class="fa-regular fa-hand-back-fist" id="user"></i>
+            <i class="fa-regular fa-hand-back-fist" id="cpu"></i>
+        </div>
+        <h3 id="heading">Let's Play</h3>
+        <div class="select-hand">
+            <span class="rock-con">
+                <i class="fa-regular fa-hand-back-fist" id="rock"></i>
+                <p>Rock</p>
+            </span>
+            <span class="paper-con">
+                <i class="fa-regular fa-hand" id="paper"></i>
+                <p>Paper</p>
+            </span>
+            <span class="scissors-con">
+                <i class="fa-regular fa-hand-scissors" id="scissors"></i>
+                <p>Scissors</p>
+            </span>
+        </div>
+    </div>
+    <script>
+    /* function RockPaperScissors(userChoice) {
+    const cupChoiceAr = ["rock","paper","scissors"];
+    const cupChoice = cupChoiceAr[Math.floor(Math.random()*3)];
+    if (userChoice == cupChoice) {
+        console.log("It's a Draw!!");
+    } else {
+        switch(userChoice) {
+            case "rock":
+                if (cupChoice == cupChoiceAr[2]) {
+                    console.log("user Won!! "+cupChoice);
+                } else {
+                    console.log("CPU Won!! "+cupChoice);
+                }
+              break;
+            case "paper":
+                if (cupChoice == cupChoiceAr[0]) {
+                    console.log("user Won!! "+cupChoice);
+                } else {
+                    console.log("CPU Won!! "+cupChoice);
+                }
+              break;
+            case "scissors":
+                if (cupChoice == cupChoiceAr[1]) {
+                    console.log("user Won!! "+cupChoice);
+                } else {
+                    console.log("CPU Won!! "+cupChoice);
+                }
+              break;
+          }
+    }
+} */
+
+    const rockEle = document.getElementById("rock");
+    const paperEle = document.getElementById("paper");
+    const scissorsEle = document.getElementById("scissors");
+    const h3Ele = document.getElementById("heading");
+    const userEle = document.getElementById("user");
+    const cpuEle = document.getElementById("cpu");
+
+    const cupChoiceAr = ["rock","paper","scissors"];
+
+    rockEle.addEventListener("click",function(){
+        const cupChoice = cupChoiceAr[Math.floor(Math.random()*3)];
+
+        if (cupChoice == "rock") {
+            //console.log("It's a Draw!! "+cupChoice);
+            h3Ele.innerHTML = "It's a Draw!! "+cupChoice;
+            userEle.className = "fa-regular fa-hand-back-fist";
+            cpuEle.className = "fa-regular fa-hand-back-fist";
+        }
+        else{
+            if (cupChoice == cupChoiceAr[2]) {
+                //scissors aya
+                h3Ele.innerHTML = "user Won!! "+cupChoice;
+                userEle.className = "fa-regular fa-hand-back-fist";
+                cpuEle.className = "fa-regular fa-hand-scissors";
+            } 
+            else {
+                //Paper
+                h3Ele.innerHTML = "CPU Won!! "+cupChoice;
+                userEle.className = "fa-regular fa-hand-back-fist";
+                cpuEle.className = "fa-regular fa-hand";
+            }
+        }
+    });
+    paperEle.addEventListener("click",function(){
+        const cupChoice = cupChoiceAr[Math.floor(Math.random()*3)];
+        if (cupChoice == "paper") {
+            //Draw
+            h3Ele.innerHTML = "It's a Draw!! "+cupChoice;
+            userEle.className = "fa-regular fa-hand";
+            cpuEle.className = "fa-regular fa-hand";
+        }
+        else{
+            if (cupChoice == cupChoiceAr[0]) {
+               //Rock
+               h3Ele.innerHTML = "user Won!! "+cupChoice;
+               userEle.className = "fa-regular fa-hand";
+               cpuEle.className = "fa-regular fa-hand-back-fist";
+            }
+            else {
+               //
+               h3Ele.innerHTML = "CPU Won!! "+cupChoice;
+               userEle.className = "fa-regular fa-hand";
+               cpuEle.className = "fa-regular fa-hand-scissors";
+            }
+        }
+
+    });
+    scissorsEle.addEventListener("click",function(){
+        const cupChoice = cupChoiceAr[Math.floor(Math.random()*3)];
+        if (cupChoice == "scissors") {
+            //Draw
+            h3Ele.innerHTML = "It's a Draw!! "+cupChoice;
+            userEle.className = "fa-regular fa-hand-scissors";
+            cpuEle.className = "fa-regular fa-hand-scissors";
+        }
+        else{
+            if (cupChoice == cupChoiceAr[1]) {
+            //Paper
+            h3Ele.innerHTML = "user Won!! "+cupChoice;
+            userEle.className = "fa-regular fa-hand-scissors";
+            cpuEle.className = "fa-regular fa-hand";
+
+        } 
+        else {
+            //Rock
+            h3Ele.innerHTML = "CPU Won!! "+cupChoice;
+            userEle.className = "fa-regular fa-hand-scissors";
+            cpuEle.className = "fa-regular fa-hand-back-fist";
+        }
+        }
+    });
+
+    </script>
+</body>
+</html>
