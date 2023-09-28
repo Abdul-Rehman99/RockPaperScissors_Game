@@ -14,28 +14,88 @@
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
     }
-    .box{
-        border: 2px solid purple;
+    body{
         display: flex;
+        justify-content: center;
+        margin-top: 200px;
+        background-color: #f6f7fb;
+    }
+    .box{
+        border: 2px solid #7d2ae8;
+        height: 300px;
+        width: 500px;
+        border-radius: 10px;
+        background-color: #fff;
+       display: flex;
         flex-direction: column;
         gap: 7px;
+        box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .box .state .h3Ele  {
+        transform-origin: right;
+        animation: 0.7s ease infinite;
+    }
+    #heading{
+        display: flex;
+        justify-content: space-around;
     }
     h3{
         background-color: azure;
+        color: #7d2ae8;
+        margin-top: 30px;
+        cursor: pointer;
     }
     i{
+        margin-top: 10px;
         font-size: 4rem;
+        color: #7d2ae8;
+        cursor: pointer;
     }
     .select-hand{
-        background-color: aquamarine;
+        /*background-color: aquamarine;*/
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 200px;
+        color: #7d2ae8;
+        cursor: pointer;
+
     }
     .select-hand>span{
         display: inline-block;
         padding: 6px;
+        color: #7d2ae8;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+    }
+    .select-hand span:hover{
+        opacity: 1;
     }
     .state{
-        background-color: aqua;
+        display: flex;
+        justify-content: space-evenly;
+        animation: usershake 0.7s ease infinite;
+        /*background-color: aqua;*/
     }
+    @keyframes usershake {
+        50%{
+            transform: translateY(10px);
+        }
+    }
+   
+    .paper-con p{
+        margin-left: 10px;
+    }
+    .rock-con p{
+        margin-left: 10px;
+    }
+    #user {
+        transform: rotate(90deg);
+    }
+    #cpu{
+        transform: rotate(-90deg);
+    }
+    
 </style>
 <body>
     <div class="box">
